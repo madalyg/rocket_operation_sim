@@ -1,5 +1,0 @@
-
-**Constructors**
-A constructor is a function called when an object from a class is created.
-A constrcutor initializes the object's data.
-Their name matches the class name e.g. the constr. for class Vector3D is Vector3D(); or paramterized Vector3D(double x, double y, double z);
