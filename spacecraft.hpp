@@ -1,4 +1,4 @@
-/// Madaly G 2026
+ //Madaly G 2026
 /**
  * @file Spacecraft.cpp
  * @brief Rocket vehicle state properties and variable mass propulsion system.

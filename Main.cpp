@@ -1,7 +1,7 @@
+//Madaly G 2026
 /**
  * @file main.cpp
- * @brief Discrete-time simulation loop.
- * 
+ * @brief Main execution file for the rocket operation simulator.
  * @reference Wie, B. (1998). "Space Vehicle Dynamics and Control", AIAA. Ch. 2.
  * @reference NASA-SP-8008: "Pre-launch Dynamic Loads Analysis".
  */
