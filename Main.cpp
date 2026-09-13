@@ -1,3 +1,11 @@
+/**
+ * @file main.cpp
+ * @brief Discrete-time simulation loop.
+ * 
+ * @reference Wie, B. (1998). "Space Vehicle Dynamics and Control", AIAA. Ch. 2.
+ * @reference NASA-SP-8008: "Pre-launch Dynamic Loads Analysis".
+ */
+
 #include <iostream>
 #include "Vector3D.hpp"
 
