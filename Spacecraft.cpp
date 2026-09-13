@@ -4,7 +4,6 @@
  * @brief Implementation of the Spacecraft class.
  */
 
-#pragma once
 #include "Spacecraft.hpp"
 #include <algorithm> // For std::clamp
 #include <iostream>
