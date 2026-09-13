@@ -5,6 +5,8 @@
  */
 
 #pragma once
-#include "Vector3D.hpp"
+#include "Spacecraft.hpp"
+#include <algorithm> // For std::clamp
+#include <iostream>
 
-class Spacecraft
+const double G0 = 9.80665; // Earth gravity constant in m/s^2

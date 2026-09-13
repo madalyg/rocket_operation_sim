@@ -54,5 +54,3 @@ class Spacecraft {
         void update_mass(double dt);
         void update_kinematics(const Vector3D& next_pos, const Vector3D& next_vel, const Vector3D& next_accel);
 };
-
-
