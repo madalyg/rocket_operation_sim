@@ -61,3 +61,9 @@ void Spacecraft::update_mass(double dt) {
         std::cout << "WARNING: Propellant exhaustion. Main engine cut-off (MECO) initiating." << std::endl;
     }
 }
+
+void Spacecraft::update_kinematics(const Vector3D& next_pos, const Vector3D& next_vel, const Vector3D& next_accel) {
+    position = next_pos;
+    velocity = next_vel;
+    acceleration = next_accel;
+}
