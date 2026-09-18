@@ -13,10 +13,10 @@ const double G0 = 9.80665; // Earth gravity constant in m/s^2
 
 Spacecraft::Spacecraft(double dry_mass, double initial_fuel, double max_thrust, double min_throttle, double isp)
     : dry_mass(dry_mass), fuel_mass(initial_fuel), max_thrust(max_thrust), min_throttle(min_throttle), isp(isp),
-      current_throttle(0,0), thrust_direction(Vector3D(0, 1, 0)) {}
+      current_throttle(0.0), thrust_direction(Vector3D(0, 1, 0)) {}
 
 //Call setters
-void Spacecraft::set_state(const Vector3D& pos, Vector3D& vel) {
+void Spacecraft::set_state(const Vector3D& pos, const Vector3D& vel) {
     position = pos;
     velocity = vel;
     acceleration = Vector3D(0, 0, 0);
@@ -54,7 +54,7 @@ void Spacecraft::update_mass(double dt) {
     double thrust_force = current_throttle * max_thrust;
     double mass_flow_rate = thrust_force / (isp * G0); // kg/s
 
-    fuel_mass -= mass_flow_rate * dt;
+    fuel_mass -= mass_flow_rate * dt; // Subtract mass flow rate per timestep
 
     if (fuel_mass < 0.0) {
         fuel_mass = 0.0;
