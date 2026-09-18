@@ -38,3 +38,26 @@ void Spacecraft::command_thruster(double throttle_request, const Vector3D& direc
 
     thrust_direction = direction_request.normalize();
 }
+
+Vector3D Spacecraft::calculate_thrust_force() const {
+    double force_magnitude = current_throttle * max_thrust;
+    return thrust_direction * force_magnitude;
+}
+
+void Spacecraft::update_mass(double dt) {
+    if (fuel_mass <= 0.0) {
+        fuel_mass = 0.0;
+        return;
+    }
+
+    // Mass flow rate equation: m_dot = Thrust / (Isp * g0)
+    double thrust_force = current_throttle * max_thrust;
+    double mass_flow_rate = thrust_force / (isp * G0); // kg/s
+
+    fuel_mass -= mass_flow_rate * dt;
+
+    if (fuel_mass < 0.0) {
+        fuel_mass = 0.0;
+        std::cout << "WARNING: Propellant exhaustion. Main engine cut-off (MECO) initiating." << std::endl;
+    }
+}
