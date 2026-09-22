@@ -1,8 +1,9 @@
-/// Madaly G 2026
 /**
  * @file Spacecraft.cpp
  * @brief Implementation of the Spacecraft class. Uses the dynamic constraints of a rocket,
  *       including variable fuel mass depletion rate and thrust direction.
+ * @author Madaly G
+ * @date 2026-09-13
  */
 
 #include "Spacecraft.hpp"

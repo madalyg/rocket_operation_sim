@@ -1,3 +1,13 @@
+/**
+ * @file Environment.hpp
+ * @brief Models the gravitational field and other environmental effects on the spacecraft.
+ * @author Madaly G
+ * @date 2026-09-22
+ *
+ * @reference Vallado, D. A. (2013). Fundamentals of Astrodynamics and Applications
+ *            (4th ed.). Microcosm Press.
+ */
+
 #pragma once
 #include "Vector3D.hpp"
 #include "Spacecraft.hpp"

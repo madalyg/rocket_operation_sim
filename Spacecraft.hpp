@@ -1,12 +1,11 @@
- //Madaly G 2026
 /**
- * @file Spacecraft.cpp
+ * @file Spacecraft.hpp
  * @brief Rocket vehicle state properties and variable mass propulsion system.
+ * @author Madaly G
+ * @date 2026-09-10
  * 
- * @reference Bate, R. R., Mueller, D. D., & White, J. E. (1971). 
- *            "Fundamentals of Astrodynamics", Dover Publications. Ch. 1 (Rocket Equation).
- * @reference Niskanen, S. (2013). "OpenRocket Technical Documentation", 
- *            Section 3.2: Thrust Vectoring & Throttle Constraints.
+ * @reference Bate, R. R., Mueller, D. D., & White, J. E. (1971). "Fundamentals of Astrodynamics", Dover Publications. Ch. 1 (Rocket Equation).
+ * @reference Niskanen, S. (2013). "OpenRocket Technical Documentation", Section 3.2: Thrust Vectoring & Throttle Constraints.
  */
 
 #pragma once

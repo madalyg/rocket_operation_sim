@@ -1,7 +1,8 @@
-//Madaly G 2026
 /**
- * @file main.cpp
+ * @file Main.cpp
  * @brief Main execution file for the rocket operation simulator.
+ * @author Madaly G
+ * @date 2026-09-06
  * @reference Wie, B. (1998). "Space Vehicle Dynamics and Control", AIAA. Ch. 2.
  * @reference NASA-SP-8008: "Pre-launch Dynamic Loads Analysis".
  * @reference National Aeronautics and Space Administration Wiki. (n.d.). Falcon 9. https://nasa.fandom.com/wiki/Falcon_9#Specifications

@@ -1,3 +1,10 @@
+/**
+ * @file Vector3D.cpp
+ * @brief Implementation of the 3D vector utilities used by the simulation.
+ * @author Madaly G
+ * @date 2026-09-06
+ */
+
 #include "Vector3D.hpp"
 #include <cmath>
 

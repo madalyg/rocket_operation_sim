@@ -1,6 +1,12 @@
+/**
+ * @file Vector3D.hpp
+ * @brief 3D vector definition used for spacecraft kinematics and forces.
+ * @author Madaly G
+ * @date 2026-09-06
+ */
+
 #pragma once //Include header only once in file
 
-//Custom 3D vector class for physics calculations
 class Vector3D {
 public:
     double x, y, z;
