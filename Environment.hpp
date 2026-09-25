@@ -28,7 +28,7 @@ class Environment {
     public:
         Environment(const Vector3D& gravity = Vector3D(0.0, -9.80665, 0.0)); // Default gravity vector pointing downwards
 
-        // Advance the rocket forward by dt second(s)
-        void step_rk4(Spacecraft& vehicle, double dt) const;
+        // Advance the rocket forward by dt second(s) using RK4 integration
+        void step_rk4(Spacecraft& vehicle, double dt) const; //
 
 };
