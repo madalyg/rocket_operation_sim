@@ -9,6 +9,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include "Vector3D.hpp"
 #include "Spacecraft.hpp"
 #include "Environment.hpp"
@@ -28,7 +29,7 @@ int main() {
     return 0; */}
 
     std::cout << "==================State Properties Verification Active ======================" << std::endl;
-    // Instantiate rocket: dry mass=25,600kg, fuel=15,000kg, max thrust=845,222N, min throttle=0.40, isp=283s
+    // Instantiate rocket based on Falcon 9 specifications: dry mass=25,600kg, fuel=15,000kg, max thrust=845,222N, min throttle=0.40, isp=283s
     Spacecraft rocket(25600.0, 15000.0, 845222.0, 0.40, 283.0);
 
     // Set initial kinematic state vectors: 1500m up, falling at 50 m/s
@@ -43,9 +44,9 @@ int main() {
     std::cout << "Engine Thrust Output: " << thrust.y << " Newtons" << std::endl;
 
     // Burn engine for 10 s to simulate fuel consumption
-    double dt = 1.0; // 1 s timestep
+    double mass_dt = 1.0; // 1 s timestep
     for (int step = 1; step <= 10; step++) {
-        rocket.update_mass(dt);
+        rocket.update_mass(mass_dt);
     }
     std::cout << "Remaining Fuel Mass after 10s burn: " << rocket.get_fuel_mass() << " kg" << std::endl;
     std::cout << "Total Vehicle Mass After 10s burn:" << rocket.get_total_mass() << " kg" << std::endl;
@@ -64,8 +65,8 @@ int main() {
     // Set initial position and velocity, 2500m up with 0 m/s velocity
     falcon9.set_state(Vector3D(0.0, 2500.0, 0.0), Vector3D(0.0, 0.0, 0.0));
 
-    // Leave the engine off initially to simulate rocket dropping under gravity (gravity check)
-    falcon9.command_thruster(0.0, 2500.0, 0.0), Vector3D(0, 1, 0);
+    // Leave the engine off to simulate rocket dropping under gravity (gravity check)
+    falcon9.command_thruster(0.0, Vector3D(0, 1, 0));
 
     double time = 0.0;
     double dt = 0.5; // 0.5s timestep

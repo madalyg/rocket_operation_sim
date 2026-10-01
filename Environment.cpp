@@ -5,23 +5,25 @@
  * @date 2026-09-23
  */
 
-#include Environment.hpp
+#include "Environment.hpp"
 
-Enviornment::Environment(const Vector3D& gravity) : gravity_vector(gravity) {}
+Environment::Environment(const Vector3D& gravity) : gravity_vector(gravity) {}
 
-Vector3D Environment::compute_acceleration(const Spacecraft& vehicle, const Vector3D& pos, Vector3D& vel) const {
+Vector3D Environment::compute_acceleration(const Spacecraft& vehicle, const Vector3D& pos, const Vector3D& vel) const {
+    (void)pos;
+    (void)vel;
     // Total acceleration is the sum of the gravity vector and thrust force vector / mass, from f=ma
     double mass = vehicle.get_total_mass();
     if (mass <= 0.0) return gravity_vector;
-    
-    Vector3D thrust_force = vehicle.get.calculate_thrust_force();
+
+    Vector3D thrust_force = vehicle.calculate_thrust_force();
     return gravity_vector + (thrust_force * (1.0 / mass));
 }
 
 void Environment::step_rk4(Spacecraft& vehicle, double dt) const {
     // Get the current state of the spacecraft
     Vector3D x0 = vehicle.get_position();
-    Vector3d v0 = vehicle.get_velocity();
+    Vector3D v0 = vehicle.get_velocity();
 
     // k1: evaluate derivatives at the initial state
     Derivative k1;
@@ -61,4 +63,3 @@ void Environment::step_rk4(Spacecraft& vehicle, double dt) const {
     vehicle.update_kinematics(final_pos, final_vel, final_accel);
 
 }
-
