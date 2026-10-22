@@ -1,0 +1,41 @@
+name: Simulator CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-simulate:
+    name: Build, test, and simulate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build simulator and tests
+        run: cmake --build build --parallel
+
+      - name: Run automated tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Run simulator test
+        run: |
+          timeout 30s ./build/rocket_sim | tee simulation-telemetry.txt
+          grep -q "Impact Detected" simulation-telemetry.txt
+
+      - name: Upload simulation telemetry
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulation-telemetry
+          path: simulation-telemetry.txt
+          if-no-files-found: error
+          retention-days: 14
